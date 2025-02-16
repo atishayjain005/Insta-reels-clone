@@ -20,5 +20,5 @@ This project is a responsive video reels page built with Next.js and Tailwind CS
 1. **Clone the Repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/atishayjain005/Insta-reels-clone.git
    cd toastd-video-reels
