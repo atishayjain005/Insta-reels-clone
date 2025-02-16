@@ -7,7 +7,6 @@ This project is a responsive video reels page built with Next.js and Tailwind CS
 - **Vertical Scroll**: Full-screen reels with snap scrolling.
 - **Autoplay/Pause**: Videos autoplay when in view and pause when out of view.
 - **Basic Controls**: Play/Pause, Mute/Unmute, Like, and Share.
-- **Product Tag Overlay**: Animated product tag appears on the video.
 - **Responsive Design**: Optimized for mobile, tablet, and desktop.
 
 ## Getting Started
