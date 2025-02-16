@@ -1,26 +1,36 @@
-import React from 'react';
-import VideoReel from '@/components/VideoReel';
-import Videos from '@/constants/Videos';
+"use client";
+import React, { useEffect } from "react";
+import VideoReel from "@/components/VideoReel";
+import Videos from "@/constants/Videos";
 
-// Sample data with placeholder videos and product info
+export default function Home() {
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    setVh();
+    window.addEventListener("resize", setVh);
+    return () => window.removeEventListener("resize", setVh);
+  }, []);
 
-const Home = () => {
-  console.log(Videos)
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-    {Videos.map((video) => (
-      <div
-        key={video.id}
-        className="snap-start h-screen flex justify-center items-center"
-      >
-        {/* On mobile max width is 400px, on desktop we increase it */}
-        <div className="w-full max-w-[400px] md:max-w-[600px] h-full p-4 rounded-lg overflow-hidden bg-black">
-          <VideoReel {...video} />
+    <div
+      className="overflow-y-scroll snap-y snap-mandatory"
+      style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+    >
+      {Videos.map((video) => (
+        <div
+          key={video.id}
+          className="snap-start flex justify-center items-center"
+          style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+        >
+          {/* On mobile max width is 400px; on desktop we increase it */}
+          <div className="w-full max-w-[400px] md:max-w-[600px] h-full p-4 rounded-lg overflow-hidden bg-black">
+            <VideoReel {...video} />
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
   );
-};
-
-export default Home;
+}

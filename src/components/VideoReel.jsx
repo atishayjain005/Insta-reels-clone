@@ -46,11 +46,9 @@ export default function VideoReel({
             if (entry.isIntersecting) {
               // Reset the video to start over when it comes into view
               videoRef.current.currentTime = 0;
-              videoRef.current
-                .play()
-                .catch((error) => {
-                  if (error.name !== "AbortError") console.error(error);
-                });
+              videoRef.current.play().catch((error) => {
+                if (error.name !== "AbortError") console.error(error);
+              });
               setIsPlaying(true);
               if (productTag) {
                 setTimeout(() => setShowProductTag(true), 500);
@@ -167,6 +165,8 @@ export default function VideoReel({
         controls={false}
         muted={isMuted}
         autoPlay
+        playsInline
+        webkitPlaysInline
       />
 
       {/* Mute/Unmute button (bottom right) */}
